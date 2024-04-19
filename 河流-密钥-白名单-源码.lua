@@ -1,5 +1,112 @@
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/AWDX-DYVB/test/main/%E6%B2%B3%E6%B5%81%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E6%BA%90%E7%A0%81.lua"))()
 
+Account_ID=16738
+Authenticator_ID=tostring(game.Players.LocalPlayer.UserId)--可以填其他的，只要你填的东西不超过三十六位
+function onMessage(onMessagetext)
+   game:GetService("StarterGui"):SetCore("SendNotification", {Title="",Text=onMessagetext,Icon="http://www.roblox.com/asset/?id=6023426923"});
+   Duration = 5;
+end
+function checkkey()
+      idjson=game:HttpGet("https://api-gateway.platoboost.com/v1/public/whitelist/"..tostring(Account_ID).."/"..Authenticator_ID.."?key=lol")
+   if idjson then
+
+      idjson=game:GetService("HttpService"):JSONDecode(idjson)
+      if tostring(idjson.success) == "true" then
+      local sound = Instance.new("Sound")
+sound.SoundId = "rbxassetid://9060788686" 
+sound.Parent = game.Workspace 
+sound:Play()
+          OrionLib:MakeNotification({
+  Name = "正在启动河脚本",
+  Content = "密钥验证通过-正在启动河脚本-(请耐心等待)",
+  Image = "rbxassetid://15361603644",
+  Time = 10
+  
+})
+          if game.PlaceId == 6839171747 then
+  loadstring(game:HttpGet("https://github.com/ownckn/DXQ/raw/main/%E6%B2%B3%E6%B5%81DOORS%E7%94%B5%E6%A2%AF%E6%BA%90%E7%A0%81.lua"))(); --DOORS电梯
+  game.StarterGui:SetCore("SendNotification", {
+    Title = "河流工作室",
+    Text = "正在跳转 DOORS(电梯)",
+    Duration = 5
+  })
+
+ elseif game.PlaceId == 5256165620 then
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/XingheRiver/XingheRiver/main/%E6%B2%B3%E6%B5%81%E7%81%AB%E7%AE%AD%E5%8F%91%E5%B0%84%E6%A8%A1%E6%8B%9F%E5%99%A8%E6%BA%90%E7%A0%81.lua"))(); --火箭发射模拟器
+  game.StarterGui:SetCore("SendNotification", {
+    Title = "河流工作室",
+    Text = "正在跳转 火箭发射模拟器",
+    Duration = 5
+  })
+
+
+ elseif game.PlaceId == 6516141723 then
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/XingheRiver/XingheRiver/main/%E6%B2%B3%E6%B5%81DOORS%E5%A4%A7%E5%8E%85%E6%BA%90%E7%A0%81.lua"))(); --DOORS大厅
+  game.StarterGui:SetCore("SendNotification", {
+    Title = "河流工作室",
+    Text = "正在跳转 DOORS大厅",
+    Duration = 5
+  })
+
+
+ elseif game.PlaceId == 13822889 then
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/XingheRiver/XingheRiver/main/%E6%B2%B3%E6%B5%81%E4%BC%90%E6%9C%A8%E5%A4%A7%E4%BA%A8%E6%BA%90%E7%A0%81.lua"))(); --伐木大亨2
+  game.StarterGui:SetCore("SendNotification", {
+    Title = "河流工作室",
+    Text = "正在跳转 伐木大亨2",
+    Duration = 5
+  })
+
+
+ elseif game.PlaceId == 155615604 then
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/XingheRiver/XingheRiver/main/%E6%B2%B3%E6%B5%81%E7%9B%91%E7%8B%B1%E4%BA%BA%E7%94%9F%E6%BA%90%E7%A0%81.lua"))(); --监狱人生
+  game.StarterGui:SetCore("SendNotification", {
+    Title = "河流工作室",
+    Text = "正在跳转 监狱人生",
+    Duration = 5
+  })
+
+
+ elseif game.PlaceId == 13772394625 then
+  loadstring(game:HttpGet("https://github.com/ownckn/DXQ/raw/main/%E6%B2%B3%E6%B5%81%E5%88%80%E7%BE%BD%E7%90%83%E8%84%9A%E6%9C%AC%E6%BA%90%E7%A0%81.lua"))(); --刀羽球
+  game.StarterGui:SetCore("SendNotification", {
+    Title = "河流工作室",
+    Text = "正在跳转 刀羽球",
+    Duration = 5
+  })
+
+ else
+  loadstring(game:HttpGet("https://github.com/ownckn/DXQ/raw/main/%E6%B2%B3%E6%B5%81%E6%99%AE%E9%80%9A%E8%84%9A%E6%9C%AC%E6%BA%90%E7%A0%81.lua"))(); --和脚本普通
+  game.StarterGui:SetCore("SendNotification", {
+    Title = "河流工作室",
+    Text = "正在跳转 原版河脚本",
+    Duration = 5
+  })
+
+end
+          
+        else
+        local sound = Instance.new("Sound")
+sound.SoundId = "rbxassetid://136075117" 
+sound.Parent = game.Workspace 
+sound:Play()
+         OrionLib:MakeNotification({
+  Name = "启动失败-你还未解锁密钥",
+  Content = "点击下方的获取密钥链接",
+  Image = "rbxassetid://15361603644",
+  Time = 10
+})
+
+      end
+     else
+
+
+   end
+end
+function getKeylink()
+   return "https://gateway.platoboost.com/a/"..tostring(Account_ID).."?id="..Authenticator_ID
+end
+
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/ownckn/choose/main/%E9%9D%A2%E6%9D%BFUI.lua"))()
 
 local GUI = loadstring(game:HttpGet("https://github.com/ownckn/choose/raw/main/%E9%80%89%E6%8B%A9UI.lua"))()
@@ -12,33 +119,57 @@ OrionLib:MakeNotification({
 })
 wait(3)
 
+pl=tostring(game.Players.LocalPlayer.Character);
+
 local Window = OrionLib:MakeWindow({Name = "河流工作室(河脚本)(密钥系统)", HidePremium = false, SaveConfig = false, IntroText = "正在启动(河脚本)(密钥系统)", ConfigFolder = "密钥系统"})
 
-wait(2)
-
-OrionLib:MakeNotification({
-  Name = "河流提示--正在加载",
-  Content = "正在加载--河流密钥--河流测试服--功能列表",
-  Time = 6
-})
-
-wait(2)
-
 local Key = Window:MakeTab({
-Name = "河流密钥",
+Name = "河流-密钥-系统",
 Icon = "rbxassetid://13169958031",
 PremiumOnly = false
 })
 
+Key:AddParagraph("你的用户名是:"..pl,"")
+
+Key:AddParagraph("你的用户名是:"..identifyexecutor(),"")
+
+Key:AddTextbox({
+  Name = "请输入密钥",
+  Default = "",
+  TextDisappear = true,
+  Callback = function(Value)
+  
+  end
+})
+
+Key:AddButton({
+	Name = "启动河脚本",
+	Callback = function(Value)
+	checkkey()
+  	end
+})
+
+Key:AddButton({
+	Name = "点击获取密钥链接",
+	Callback = function(Value)
+	setclipboard(getKeylink())
+   OrionLib:MakeNotification({
+  Name = "密钥链接复制成功",
+  Content = "打开浏览器使用-即可获得密钥",
+  Image = "rbxassetid://15361603644",
+  Time = 10
+})
+
+  	end
+})
+Key:AddParagraph("河流免责声明-河脚本永久免费-警方被诈骗","")
+Key:AddParagraph("获取密钥使用说明","①-点击获取密钥链接\n②-打开浏览器-进入链接\n③-必须挂vpn不挂的话进不去\n④-密钥使用时间是24小时-请重新弄1遍\n⑤-非常感谢你使用我们的脚本-你的开心就是我们的动力")
+
 local Szy = Window:MakeTab({
-Name = "河流测试服",
+Name = "河流-测试服",
 Icon = "rbxassetid://15570514515",
 PremiumOnly = false
 })
-
-Szy:AddParagraph("你的用户名是",game.Players.LocalPlayer.Character.Name)
-
-Szy:AddParagraph("想要测试服资格-请找群主-购买测试服资格","")
 
 Szy:AddButton({
 	Name = "点击进入河流测试服",
@@ -53,179 +184,11 @@ Szy:AddButton({
   	end
 })
 
+Szy:AddParagraph("想要测试服资格-请找群主-购买测试服资格","")
+
 Szy:AddParagraph("或者你已经有资格了-可能在群里面已经选中你了","")
 
 Szy:AddParagraph("请去查看下面的关于我们了解更多","")
-
-pl=tostring(game.Players.LocalPlayer.Character);
-
-function rightkey()
-OrionLib:MakeNotification({
-Name = "你已添加了密钥用户",
-Content = "你的密钥输入正确-正在启动脚本中-请耐心等待",
-Image = "rbxassetid://15361603644",
-Time = 10
-})
-end
-function loa()
-OrionLib:MakeNotification({
-Name = "你已添加了白名单用户",
-Content = "白名单验证成功-正在启动脚本中-请耐心等待",
-Image = "rbxassetid://13317101016",
-Time = 10
-})
-loadstring(game:HttpGet("https://pastebin.com/raw/9YNCv6Vm"))()
-end
-function load()
-rightkey()
-loadstring(game:HttpGet("https://pastebin.com/raw/9YNCv6Vm"))()
-end
-
-function load2()
---验证区
-Key:AddParagraph("想要密钥-或者-白名单-请加河流QQ官方群:587185906<>河脚本永久免费","")
-Key:AddParagraph("你的用户名是:"..pl,"")
-Key:AddParagraph("一人一密钥-或者-白名单-请找作者免费领取-作者QQ:3082094144","")
-
-Key:AddTextbox({
-Name = "请输入河流密钥",
-Default = "",
-TextDisappear = true,
-Callback = function(Value)
-key = Value
-end
-})
-
-Key:AddButton({
-Name = "确定河流密钥",
-Callback = function()
-pd(pl,key)
-end
-})
-
-end
-
-function load3()
---验证区
-Key:AddParagraph("想要密钥-或者-白名单-请加河流QQ官方群:587185906<>河脚本永久免费","")
-Key:AddParagraph("你的用户名是:"..pl,"")
-Key:AddParagraph("一人一密钥-或者-白名单-请找作者免费领取-作者QQ:3082094144","")
-
-
-
-
-Key:AddButton({
-Name = "点击我启动河脚本",
-Callback = function()
-loa()
-end
-})
-
-Key:AddParagraph("你只有白名单验证-没有密钥验证","")
-
-end
-function load4()
---验证区
-Key:AddParagraph("想要密钥请加河流QQ官方群:587185906<>河脚本永久免费","")
-Key:AddParagraph("你没有白名单验证 只有密钥验证"..pl,"")
-
-Key:AddTextbox({
-Name = "请输入河流密钥",
-Default = "",
-TextDisappear = true,
-Callback = function(Value)
-key = Value
-end
-})
-
-local userkey = {
-"卡密",
-"卡密",
-}
-
-
-
-Key:AddButton({
-Name = "确定河流密钥",
-Callback = function()
-if table.find(userkey,key) then
-OrionLib:MakeNotification({
-  Name = "正在启动河脚本",
-  Content = "脚本启动成功正在加载中-请耐心等待(正在启动)",
-  Image = "rbxassetid://15361603644",
-  Time = 10
-})
-loa()
-end
-
-
-
-end
-
-})
-end
-
-
-
-function wr2()
-OrionLib:MakeNotification({
-Name = "很抱歉-你没有添加-密钥用户-或者-白名单用户",
-Content = "你没有添加-密钥用户-或者-白名单用户-这其中的一个\n要添加-密钥-和-白名单-联系作者QQ:3082094144\n也可以加入群聊获得QQ群:587185906",
-Image = "rbxassetid://15361603644",
-Time = 10
-})
-end
-
-function wr()
-OrionLib:MakeNotification({
-Name = "你已添加密钥用户",
-Content = "你的密钥错误-请输入正确密钥-我们的群主已经给你发了密钥",
-Image = "rbxassetid://15361603644",
-Time = 8
-})
-end
-
---密钥和用户名的编辑区
-
--- 白名单列表
-loadstring(game:HttpGet("https://pastebin.com/raw/fGE7gwCC"))()
-
-function pd(pl,key)
-if whitelist[pl] ~= nil then
-pd3(pl,key)
- else
-wr2()
-end
-end
-
-
---判断用户是否免除密钥
-if whitelist[pl] == false then
-load3()
- elseif whitelist[pl] == true then
-load4()
- else
-load2()
-end
-
--- 检测用户名和卡密是否匹配
-function pd3(pl, key)
-if whitelist[pl] == key then
-load()
- else
-wr()
-end
-end
-
-wait(2)
-
-OrionLib:MakeNotification({
-  Name = "河流提示--正在加载",
-  Content = "正在加载--脚本说明书--功能列表",
-  Time = 6
-})
-
-wait(2)
 
 local s = Window:MakeTab({
 Name = "脚本说明书",
@@ -245,17 +208,6 @@ s:AddButton({
         })
   	end
 })
-
-wait(2)
-
-OrionLib:MakeNotification({
-  Name = "河流提示--正在加载",
-  Content = "正在加载--其他-脚本-大厅--功能列表",
-  Time = 6
-})
-
-wait(2)
-
 
 local Igkvd = Window:MakeTab({
   Name = "其他-脚本-大厅",
@@ -290,16 +242,6 @@ Igkvd:AddButton({
       	loadstring(game:HttpGet("https://pastebin.com/raw/uw2P2fbY"))()
   	end
 })
-
-wait(2)
-
-OrionLib:MakeNotification({
-  Name = "河流提示--正在加载",
-  Content = "正在加载--关于-大厅--功能列表",
-  Time = 6
-})
-
-wait(2)
 
 local About = Window:MakeTab({
   Name = "关于我们",
@@ -349,8 +291,6 @@ About:AddTextbox({
 
 About:AddParagraph("作者的留言","欢 迎 你 使 用 河 流 roblox 你 对 他 的 支 持 就 是 我 们 的 动 力")
 
-About:AddParagraph("作者的留言","一 人 一 密 钥\n白 名 单 系 统\n是 微 山 工 作 室 做 的\n感 谢 他 帮 我 们 河 流 工 作 室 制 作 - 密 钥 - 跟 - 白 名 单")
- 
 About:AddParagraph("河流QQ官方群","587185906")
  
 About:AddButton({
@@ -387,12 +327,4 @@ About:AddColorpicker({
 	end	  
 })
 
-wait(2)
-
-OrionLib:MakeNotification({
-  Name = "河流提示--加载完成",
-  Content = "加载完成--可以开始使用了",
-  Time = 8
-})
- 
 OrionLib:Init()
